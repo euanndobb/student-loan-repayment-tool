@@ -77,6 +77,8 @@ plt.plot()
 
 take_home_rates = np.diff(take_homes) / step
 
+take_home_rates = 100* (1 - take_home_rates) 
+
 salaries_rates = np.linspace(0, 200000, len(take_home_rates))
 
 
@@ -90,9 +92,10 @@ plt.gca().xaxis.set_major_formatter(FuncFormatter(thousands_formatter))
 
 
 plt.plot(salaries_rates, take_home_rates)
-plt.ylabel('Take-home Salary Proportion for Add. Earning (£/£)')
+plt.ylabel('Taxation rate on additional earning (%)')
 plt.xlabel('Gross Salary (£)')
 plt.grid(True)
 plt.xlim([0, salaries_rates[-1]])
+plt.ylim([0, take_home_rates.max()+10])
 plt.show()
 plt.plot()
