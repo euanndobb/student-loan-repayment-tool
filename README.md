@@ -11,6 +11,14 @@ Features at present:
 
 Future features:
 
--
+- Tool to predict future salary based on current salary (this could require a model trained on salary data)
+- Tool to model future interest rates (SLC adds 1% the lower of the BoE Base and Retail Index)
+- Based on a student loan present value, make a recommendation for a threshold salary at which bulk repayments could be beneficial.
+
+Notes:
+
+- Student Loan is written off after x (30?) years.
+- Consider normal working lifespan.
+- 
 
 

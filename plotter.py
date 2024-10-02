@@ -72,3 +72,27 @@ plt.xlim([0, 200000])
 plt.ylim([0, 200000])
 plt.show()
 plt.plot()
+
+
+
+take_home_rates = np.diff(take_homes) / step
+
+salaries_rates = np.linspace(0, 200000, len(take_home_rates))
+
+
+
+def thousands_formatter(x, pos):
+    return f'{int(x / 1000)}k'
+
+# Set the custom formatter for both axes
+plt.gca().xaxis.set_major_formatter(FuncFormatter(thousands_formatter))
+
+
+
+plt.plot(salaries_rates, take_home_rates)
+plt.ylabel('Take-home Salary Proportion for Add. Earning (£/£)')
+plt.xlabel('Gross Salary (£)')
+plt.grid(True)
+plt.xlim([0, salaries_rates[-1]])
+plt.show()
+plt.plot()
