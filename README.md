@@ -1,3 +1,5 @@
+## Student Loan Repayment Tool ##
+
 This tool is under development and will be designed to inform the user whether it is favourable to pay back their student loan in a bulk payment, or continue to make repayments at the automatic rate.
 
 Features at present:
