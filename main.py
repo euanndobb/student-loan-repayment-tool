@@ -1,32 +1,33 @@
-# Tool to predict whether it is worth paying off your student loan with payments above the existing 9% of what you earn over £27k.
+from taxation import take_home_income
 
+###########################################################
 
-current_salary = 40000
+# Tax thresholds dictionary contains a 2-element list consisting 
+# of the maximum salary within the tax band and the rate at which 
+# tax is paid within the tax band.
 
-allowance_sl = 31395
+tax_thresholds = {
+    "personal allowance": [12571, 0],
+    "basic rate": [50270, 0.20],
+    "higher rate": [125140, 0.40],
+    "additional rate": [float('inf'), 0.45]
+}
 
-boe_base_interest = 4 #If there is good future model for this - apply it (perhaps as an API...)
-retail_price_index = 5
+# Similar setup for the NI.
 
-loan_rate = min(boe_base_interest, retail_price_index) + 1
+ni_thresholds = {
+    "personal allowance": [12571, 0],
+    "basic rate": [50270, 0.08],
+    "higher rate": [125140, 0.02],
+}
 
-# Assuming you get paid monthly - loan repayments are taken from the gross payment (pre-tax)
+personal_allowance_threshold = 100000
 
-#pre-tax
+###########################################################
 
-repayment = 0.09 * (current_salary - allowance_sl)
+salary = 113000
 
-net_income = ((current_salary - repayment) - 12500)*(1 - 0.4) + 12500
-
-print(repayment, net_income)
-
-after_tax = (current_salary - 12500)*0.6 + 12500
-
-repayment2 = max((after_tax - allowance_sl)*0.09, 0)
-
-net_income2 = after_tax - repayment
-
-print(repayment2, net_income2)
+print(take_home_income(salary, personal_allowance_threshold, tax_thresholds, ni_thresholds))
 
 
 
