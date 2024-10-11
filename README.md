@@ -1,6 +1,6 @@
 ## Student Loan Repayment Tool ##
 
-This tool is under development and will be designed to inform the user whether it is favourable to pay back their student loan in a bulk payment, or continue to make repayments at the automatic rate.
+This tool is under development and will be designed to inform the user whether it is favourable to overpay on their student loan, or continue to make repayments at the standard rate.
 
 ### Features at present: ###
 
@@ -11,11 +11,18 @@ This tool is under development and will be designed to inform the user whether i
 ### plotter.py ###
 
 - plots gross salaries between £0 and £200k, visualising the contribution to NI and income tax respectively.
-- plots the proportion of take-home salary gained for an increase in gross salary for the same range of gross income. It interestingly shows a c.60% taxation of earnings between 100k and 125k due to the onset of the loss of Personal Allowance.
+- plots the proportion of take-home salary gained for an increase in gross salary for the same range of gross income (essentially, this is the taxation rate for additional money earned in this range). It interestingly shows a c.60% taxation of earnings between 100k and 125k due to the onset of the loss of Personal Allowance.
 
 ### main.py ### 
 
-- simply allows the user to compute their take-home pay. 
+- simply allows the user to compute their take-home pay.
+
+### overpay_decision ###
+
+- This function allows the user (who we assume is just starting work) to enter a lifetime mean salary projection and amount which they are willing to overpay annually of the student loan.
+- The depending on the credentials the user enters, they will be advised whether to overpay or maintain the standard rate of repayment.
+- The function will return what the user stands to save in total repayment (future cash flow is not discounted here).
+- The assumption is that the overpayment, if applicable is paid on a monthly basis.
 
 ### Future features: ###
 
